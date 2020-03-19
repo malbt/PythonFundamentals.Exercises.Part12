@@ -13,12 +13,15 @@ def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
     updating this here docstring to something useful.
 
-    :param start:
-    :param stop:
-    :param parity:
+    :param start: The first string.
+    :param stop: The last string.
+    :param parity: an integer 0, 1 specifying odd and even
     :return:
     """
-    pass
+    if party == 0:
+        return [num for num in range(start, stop) if num % 2 != 0]
+    elif party == 1:
+        return [num for num in range(start, stop) if num %2 == 0]
 
 
 def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
