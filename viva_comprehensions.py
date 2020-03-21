@@ -13,15 +13,13 @@ def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
     updating this here docstring to something useful.
 
-    :param start: The first string.
-    :param stop: The last string.
-    :param parity: an integer 0, 1 specifying odd and even
-    :return:
+    :param start: The first int inclusive.
+    :param stop: The last int exclusive.
+    :param parity: specifying odd and even
+    :return: list of numbers
     """
-    if party == 0:
-        return [num for num in range(start, stop) if num % 2 != 0]
-    elif party == 1:
-        return [num for num in range(start, stop) if num %2 == 0]
+
+    return [num for num in range(start, stop) if num % 2 != parity.value]
 
 
 def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
@@ -31,15 +29,12 @@ def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
     updating this here docstring to something useful.
 
 
-    :param start:
-    :param stop:
-    :param strategy:
-    :return:
+    :param start: starting integer in a dictionary (inclusive)
+    :param stop: ending  integer in a dictionary (exclusive)
+    :param strategy:A function to manipulate each digit
+    :return: a dictionary integer
     """
-    dicts = {}
-    keys = range(start, stop)
-    for i in keys:
-
+    return {num: strategy(num) for num in range(start, stop)}
 
 
 def gen_set(val_in: str) -> Set:
@@ -48,7 +43,7 @@ def gen_set(val_in: str) -> Set:
     what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
     updating this here docstring to something useful.
 
-    :param val_in:
-    :return:
+    :param val_in: string
+    :return: upper case list
     """
-    pass
+    return {word.upper() for word in val_in if word == word.lower()}
